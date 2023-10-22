@@ -1,78 +1,46 @@
-#include <iostream>
+#include "Card.h"
 
-enum class Face
+Card::Card(Face face, Suit suit) : _face(face), _suit(suit){};
+
+Face Card::face() const { return _face; }
+Suit Card::suit() const { return _suit; }
+
+int Card::value() const
 {
-    ACE,
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN,
-    EIGHT,
-    NINE,
-    TEN,
-    JACK,
-    QUEEN,
-    KING
-};
-
-enum class Suit
-{
-    SPADES,
-    CLUBS,
-    HEARTS,
-    DIAMONDS
-};
-
-class Card
-{
-private:
-    Face _face;
-    Suit _suit;
-
-public:
-    Card() = delete;
-    Card(Face face, Suit suit) : _face(face), _suit(suit){};
-
-    Face face() const { return _face; }
-    Suit suit() const { return _suit; }
-
-    int value() const
+    switch (_face)
     {
-        switch (_face)
-        {
-        case Face::ACE:
-            return 1;
-        case Face::TWO:
-            return 2;
-        case Face::THREE:
-            return 3;
-        case Face::FOUR:
-            return 4;
-        case Face::FIVE:
-            return 5;
-        case Face::SIX:
-            return 6;
-        case Face::SEVEN:
-            return 7;
-        case Face::EIGHT:
-            return 8;
-        case Face::NINE:
-            return 9;
-        case Face::TEN:
-        case Face::JACK:
-        case Face::QUEEN:
-        case Face::KING:
-            return 10;
-        }
+    case Face::ACE:
+        return 1;
+    case Face::TWO:
+        return 2;
+    case Face::THREE:
+        return 3;
+    case Face::FOUR:
+        return 4;
+    case Face::FIVE:
+        return 5;
+    case Face::SIX:
+        return 6;
+    case Face::SEVEN:
+        return 7;
+    case Face::EIGHT:
+        return 8;
+    case Face::NINE:
+        return 9;
+    case Face::TEN:
+    case Face::JACK:
+    case Face::QUEEN:
+    case Face::KING:
+        return 10;
+    default:
+        return 0;
     }
+}
 
-    bool equals(const Card &other)
-    {
-        return this->value() == other.value();
-    }
-};
+bool Card::equals(const Card &other)
+{
+    return this->value() == other.value();
+}
 
 bool operator==(const Card &lhs, const Card &rhs)
 {
