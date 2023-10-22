@@ -5,7 +5,7 @@ Card::Card(Face face, Suit suit) : _face(face), _suit(suit){};
 Face Card::face() const { return _face; }
 Suit Card::suit() const { return _suit; }
 
-int Card::value() const
+int Card::face_value() const
 {
     switch (_face)
     {
@@ -39,7 +39,7 @@ int Card::value() const
 
 bool Card::equals(const Card &other)
 {
-    return this->value() == other.value();
+    return this->face_value() == other.face_value();
 }
 
 bool operator==(const Card &lhs, const Card &rhs)

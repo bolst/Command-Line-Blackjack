@@ -41,7 +41,7 @@ public:
     Face face() const;
     Suit suit() const;
 
-    int value() const;
+    int face_value() const;
 
     bool equals(const Card &other);
 };
