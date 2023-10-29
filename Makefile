@@ -1,5 +1,3 @@
-# Makefile for CLBlackjack
-
 # Compiler
 CXX = g++
 CXXFLAGS = -std=c++20
@@ -15,7 +13,7 @@ OBJS = $(patsubst $(SRCDIR)/%.cpp, $(BUILDDIR)/%.o, $(SRCS))
 DEPS = $(wildcard $(INCDIR)/*.h)
 
 # Executable
-EXECUTABLE = CLBlackjack.exe
+EXECUTABLE = CLBlackjack
 
 # Build rules
 $(EXECUTABLE): $(OBJS)
@@ -27,7 +25,7 @@ $(BUILDDIR)/%.o: $(SRCDIR)/%.cpp $(DEPS)
 .PHONY: clean, run
 
 clean:
-	del /Q $(BUILDDIR)\*.o $(EXECUTABLE)
+	rm -f $(BUILDDIR)/*.o $(EXECUTABLE)
 
 run: $(EXECUTABLE)
-	.\$(EXECUTABLE)
+	./$(EXECUTABLE)

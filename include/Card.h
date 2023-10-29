@@ -2,6 +2,7 @@
 #define _CARD_H
 
 #include <iostream>
+#include <vector>
 
 enum class Face
 {
@@ -27,6 +28,9 @@ enum class Suit
     HEARTS,
     DIAMONDS
 };
+
+extern const std::vector<Face> FACES;
+extern const std::vector<Suit> SUITS;
 
 class Card
 {

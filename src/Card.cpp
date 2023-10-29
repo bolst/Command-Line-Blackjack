@@ -1,5 +1,8 @@
 #include "Card.h"
 
+const std::vector<Face> FACES = {Face::ACE, Face::TWO, Face::THREE, Face::FOUR, Face::FIVE, Face::SIX, Face::SEVEN, Face::EIGHT, Face::NINE, Face::TEN, Face::JACK, Face::QUEEN, Face::KING};
+const std::vector<Suit> SUITS = {Suit::SPADES, Suit::CLUBS, Suit::HEARTS, Suit::DIAMONDS};
+
 Card::Card(Face face, Suit suit) : _face(face), _suit(suit){};
 
 Face Card::face() const { return _face; }
